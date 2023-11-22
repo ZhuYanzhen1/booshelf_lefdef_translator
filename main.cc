@@ -10,6 +10,10 @@ int main(int argc, char **argv) {
     AuxParser aux_parser(command_line.aux_file);
     aux_parser.parse(aux_database, command_line.bookshelf.str());
     std::cout << aux_database;
-    
+
+    NodesDatabase nodes_database;
+    NodesParser nodes_parser(aux_database.nodes_filename);
+    nodes_parser.parse(nodes_database);
+
     return 0;
 }

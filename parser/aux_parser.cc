@@ -18,15 +18,12 @@ AuxParser::AuxParser(const std::string &filename) {
     }
     std::string line;
     while (std::getline(input_file_, line)) {
+        size_t pos = line.find("//");
+        if (pos != std::string::npos)
+            line.erase(pos);
         line = delete_leading_spaces_(line);
         if ((line.c_str()[0] == '/' && line.c_str()[1] == '*') || (line.c_str()[0] == '/' && line.c_str()[1] == '/'))
             continue;
-        size_t pos = line.find("//"), space_count = 0;
-        if (pos != std::string::npos)
-            line.erase(pos);
-        for (char c: line)
-            if (c == ' ')
-                space_count++;
         file_content_ = file_content_ + line;
     }
 
