@@ -15,9 +15,9 @@ add_custom_target(update_version_file ALL
 )
 
 add_compile_options(-Og -g)
-include_directories(parser database tclap)
+include_directories(parser database tclap utils)
 
-file(GLOB_RECURSE SOURCES "parser/*.cc" "database/*.cc" "exporter/*.cc")
+file(GLOB_RECURSE SOURCES "parser/*.cc" "database/*.cc" "exporter/*.cc" "utils/*.cc")
 
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
 
