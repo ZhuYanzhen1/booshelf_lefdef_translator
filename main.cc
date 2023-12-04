@@ -1,3 +1,4 @@
+#include <csignal>
 #include "main.h"
 
 int main(int argc, char **argv) {
@@ -20,6 +21,17 @@ int main(int argc, char **argv) {
     NetsParser nets_parser(aux_database.nets_filename);
     nets_parser.parse(nets_database);
     std::cout << nets_database << std::endl;
+
+    PlDatabase pl_database;
+    PlParser pl_parser(aux_database.pl_filename);
+    pl_parser.parse(pl_database);
+    std::cout << pl_database << std::endl;
+
+    sleep(100);
+//    SclDatabase scl_database;
+//    SclParser scl_parser(aux_database.scl_filename);
+//    scl_parser.parse(scl_database);
+//    std::cout << scl_database << std::endl;
 
     return 0;
 }

@@ -12,6 +12,11 @@ public:
     explicit NetsParser(const std::string &filename);
 
     void parse(NetsDatabase &db);
+
+private:
+    std::vector<std::string> file_content_;
+
+    static std::string delete_leading_spaces_(std::string input);
 };
 
 #endif // TRANSLATOR_PARSER_NETS_PARSER_H

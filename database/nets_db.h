@@ -32,7 +32,9 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const NetsDatabase &db) {
         os << "Num nets: " << db.net_num << std::endl;
         os << "Num pins: " << db.pin_num << std::endl;
-        for (size_t counter = 0; counter < 10; ++counter) {
+        for (size_t counter = 0; counter < (db.nets_.size() > 10 ? 10 : db.nets_.size()); ++counter) {
+            if (db.nets_[counter].pin_num > 10)
+                continue;
             os << db.nets_[counter].name << " (" << db.nets_[counter].pin_num << ") {" << std::endl;
             for (size_t pin_counter = 0; pin_counter < db.nets_[counter].pin_num; ++pin_counter) {
                 os << "\t" << db.nets_[counter].pins[pin_counter].name << " "
@@ -40,6 +42,7 @@ public:
                    << db.nets_[counter].pins[pin_counter].pos_x << ", "
                    << db.nets_[counter].pins[pin_counter].pos_y << ")" << std::endl;
             }
+            os << "}" << std::endl;
         }
         return os;
     }

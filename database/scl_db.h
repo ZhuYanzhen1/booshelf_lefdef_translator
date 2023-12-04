@@ -25,9 +25,8 @@ public:
     superset_all_t &get_value() { return scl_instances_; }
 
     friend std::ostream &operator<<(std::ostream &os, const SclDatabase &scl) {
-        int counter = 1;
-        os << "numrow:" << scl.scl_instances_.num_rows << std::endl;
-        os << std::endl;
+        int counter = 0;
+        os << "numrow:" << scl.scl_instances_.num_rows << std::endl << std::endl;
         for (const superset_t counter_scl: scl.scl_instances_.scl_instance) {
             counter++;
             os << std::endl;
@@ -39,6 +38,8 @@ public:
             os << "sitesymmetry: " << counter_scl.sitesymmetry << std::endl;
             os << "subroworigin: " << counter_scl.subroworigin << std::endl;
             os << "numsities: " << counter_scl.numsites << std::endl;
+            if (counter == 10)
+                break;
         }
 
         return os;
