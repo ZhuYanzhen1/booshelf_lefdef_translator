@@ -59,15 +59,17 @@ void CMDLine::legality_check() {
             std::vector<std::string> tokens;
             while (ss >> item)
                 tokens.push_back(item);
-
+            bool all_files_available = true;
             for (const std::string &token: tokens) {
                 for (const std::string &suffix: suffixes)
                     if (token.find(suffix) != std::string::npos)
                         if (!check_filename_(bookshelf.str() + "/" + token, suffix))
-                            bookshelf.file_available = false;
+                            all_files_available = false;
             }
-            if (!bookshelf.file_available)
+            if (!all_files_available) {
+                bookshelf.file_available = false;
                 return;
+            }
             aux_file = bookshelf.str() + "/" + aux_file_local;
         }
     }

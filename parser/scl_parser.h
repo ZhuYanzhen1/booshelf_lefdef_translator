@@ -1,6 +1,3 @@
-#ifndef TRANSLATOR_PARSER_SCL_PARSER_H
-#define TRANSLATOR_PARSER_SCL_PARSER_H
-
 #include <fstream>
 #include <string>
 #include <vector>
@@ -23,7 +20,6 @@ private:
         fifth,
         sixth,
         seventh,
-        eighth
     };
     std::vector<std::string> file_content_;
 
@@ -31,7 +27,7 @@ private:
 
     static char parsing_char_(const std::string &counter_line);
 
-    std::string scl_para;
-};
+    std::string scl_para_;
 
-#endif // TRANSLATOR_PARSER_SCL_PARSER_H
+    static std::string upper_to_lower_(const std::string &counter_line);
+};
