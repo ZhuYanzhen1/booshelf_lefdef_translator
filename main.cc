@@ -1,4 +1,3 @@
-#include <csignal>
 #include "main.h"
 
 int main(int argc, char **argv) {
@@ -27,11 +26,10 @@ int main(int argc, char **argv) {
     pl_parser.parse(pl_database);
     std::cout << pl_database << std::endl;
 
-    sleep(100);
-//    SclDatabase scl_database;
-//    SclParser scl_parser(aux_database.scl_filename);
-//    scl_parser.parse(scl_database);
-//    std::cout << scl_database << std::endl;
+    SclDatabase scl_database;
+    SclParser scl_parser(aux_database.scl_filename);
+    scl_parser.parse(scl_database);
+    std::cout << scl_database << std::endl;
 
     return 0;
 }
