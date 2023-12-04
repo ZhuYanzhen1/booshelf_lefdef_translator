@@ -16,5 +16,10 @@ int main(int argc, char **argv) {
     nodes_parser.parse(nodes_database);
     std::cout << nodes_database << std::endl;
 
+    NetsDatabase nets_database;
+    NetsParser nets_parser(aux_database.nets_filename);
+    nets_parser.parse(nets_database);
+    std::cout << nets_database << std::endl;
+
     return 0;
 }

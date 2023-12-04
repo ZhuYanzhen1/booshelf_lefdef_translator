@@ -12,5 +12,6 @@
 //////////////////// Parser ////////////////////
 #include "aux_parser.h"
 #include "nodes_parser.h"
+#include "nets_parser.h"
 
 #endif  //TRANSLATOR_MAIN_H

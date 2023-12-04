@@ -46,8 +46,8 @@ std::string NodesParser::delete_leading_spaces_(std::string input) {
 void NodesParser::parse(NodesDatabase &nodes_db) {
     std::regex pattern("[ \t]+");
     nodes_db.get_nodes().clear();
-    nodes_db.num_nodes = std::stoul(&(file_content_[1].c_str()[file_content_[1].find(':') + 1]));
-    nodes_db.num_terminals = std::stoul(&(file_content_[2].c_str()[file_content_[2].find(':') + 1]));
+    nodes_db.nodes_num = std::stoul(&(file_content_[1].c_str()[file_content_[1].find(':') + 1]));
+    nodes_db.terminals_num = std::stoul(&(file_content_[2].c_str()[file_content_[2].find(':') + 1]));
     for (size_t counter = 3; counter < file_content_.size(); ++counter) {
         NodesDatabase::node_info_t new_node;
         std::vector<std::string> tokens(
